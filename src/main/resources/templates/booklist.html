@@ -17,6 +17,10 @@
  				<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>    		
     	</tr>
      </table>
-	 <a href="/add">Add book</a>    	
+	 <a href="/add">Add book</a>  
+	 <br>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out"/>
+	</form>  	
 </body>
 </html>
