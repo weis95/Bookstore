@@ -15,6 +15,10 @@ import demo.TaskManager.domain.User;
 import demo.TaskManager.domain.UserRepository;
 
 
+import com.zaxxer.hikari.*;
+import org.springframework.beans.factory.annotation.Value;
+import javax.sql.DataSource;
+
 
 @SpringBootApplication
 public class TaskManagerApplication {
@@ -23,7 +27,15 @@ public class TaskManagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TaskManagerApplication.class, args);
 	}
-	
+	  @Value("${spring.datasource.url}")
+	  private String dbUrl;
+	  
+	@Bean
+	  public DataSource dataSource() {
+	      HikariConfig config = new HikariConfig();
+	      config.setJdbcUrl(dbUrl);
+	      return new HikariDataSource(config);
+	  }
 	@Bean
 	public CommandLineRunner taskManagerDemo(TaskRepository brepository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
@@ -48,6 +60,7 @@ public class TaskManagerApplication {
 
 		};
 	}
+
 	
 
 }
