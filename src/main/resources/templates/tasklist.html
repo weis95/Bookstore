@@ -1,11 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>taskList</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<h1>Tasks</h1>
+	<sec:authorize access="hasRole('USER')">
+	Text visible to admin.
+	</div>
     <table>
 		<tr>
 		    <th>Task</th>
