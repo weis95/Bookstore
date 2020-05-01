@@ -1,4 +1,4 @@
-package demo.bookstore.domain;
+package demo.TaskManager.domain;
 
 import javax.persistence.*;
 

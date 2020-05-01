@@ -1,4 +1,4 @@
-package demo.bookstore.domain;
+package demo.TaskManager.domain;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class Category {
     private String name;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-	private List<Book> books;
+	private List<Task> task;
     
     public Category() {}
 
@@ -43,12 +43,12 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Book> getBooks() {
-		return books;
+	public List<Task> getTasks() {
+		return task;
 	}
 
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setTasks(List<Task> task) {
+		this.task = task;
 	}
 
 	@Override

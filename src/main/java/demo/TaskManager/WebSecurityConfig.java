@@ -1,4 +1,4 @@
-package demo.bookstore;
+package demo.TaskManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import demo.bookstore.web.UserDetailServiceImpl;
+import demo.TaskManager.web.UserDetailServiceImpl;
 
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .anyRequest().authenticated()
           .and()
       .formLogin()
-          .defaultSuccessUrl("/booklist")
+          .defaultSuccessUrl("/tasklist")
           .permitAll()
           .and()
       .logout()

@@ -1,4 +1,4 @@
-package demo.bookstore.web;
+package demo.TaskManager.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import demo.bookstore.domain.User;
-import demo.bookstore.domain.UserRepository;
+import demo.TaskManager.domain.User;
+import demo.TaskManager.domain.UserRepository;
 
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {

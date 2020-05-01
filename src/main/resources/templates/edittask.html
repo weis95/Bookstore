@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Task</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Edit student</h1>
+	<div>
+		<form th:object="${task}" th:action="@{../save}" action="#" method="post">
+		  	<label for="title">Task</label>
+			<input type="text" id="title" th:field="*{title}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="desc">Description:</label>
+			<input type="text" id="desc" th:field="*{TaskDesc}"/> 
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="duedate">DueDate</label>
+    		<input type="text" id="duedate" th:field="*{TaskDueDate}"/>
+    		<div style="clear: both; display: block; height: 10px;"></div>
+    		<label for="createdate">Created:</label>
+    		<input type="text" id="createdate" th:field="*{TaskCreateDate}"/>
+    		<div style="clear: both; display: block; height: 10px;"></div>
+    		<label for="creator">Created by:</label>
+    		<input type="text" id="creator" th:field="*{TaskCreator}"/>
+    		<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="catlist">Status</label>
+			 <select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+    		<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>
