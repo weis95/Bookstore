@@ -4,17 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+import demo.TaskManager.domain.CategoryRepository;
 import demo.TaskManager.domain.Task;
 import demo.TaskManager.domain.TaskRepository;
-import demo.TaskManager.domain.CategoryRepository;
 
 
 @Controller
@@ -58,7 +61,16 @@ public class TaskController {
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Task task){
-        repository.save(task);
+    	// check if it new task  then add it
+    	if(task.getId() == null)
+    		repository.save(task);
+    	else
+    	{
+    		// find task from database and update that task
+    		Task _task = repository.findById(task.getId()).get();
+    		_task = task;
+    		repository.save(_task);
+    	}
         return "redirect:tasklist";
     }    
  
@@ -78,5 +90,12 @@ public class TaskController {
         return "redirect:../tasklist";
     } 
 
+    // for handling errors
+    @ExceptionHandler(Throwable.class)
+    public String exception(final Throwable throwable, final Model model) {
+      
+        return "error";
+    }
+    
 }
 

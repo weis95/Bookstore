@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long categoryid;

@@ -2,6 +2,7 @@ package demo.TaskManager.domain;
 
 import javax.persistence.*;
 
+@Table(name = "app_user")
 @Entity
 public class User {
 
