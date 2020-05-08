@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+//Standard class as demonstrated in class with a join to catergory class.
 @Entity
 public class Task {
 	@Id

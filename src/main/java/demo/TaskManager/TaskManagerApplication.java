@@ -17,7 +17,6 @@ import demo.TaskManager.domain.CategoryRepository;
 import demo.TaskManager.domain.User;
 import demo.TaskManager.domain.UserRepository;
 
-
 @SpringBootApplication
 public class TaskManagerApplication {
 	private static final Logger log = LoggerFactory.getLogger(TaskManagerApplication.class);
@@ -25,13 +24,14 @@ public class TaskManagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TaskManagerApplication.class, args);
 	}
-	
+	//Encryption
 	@Bean
 	public PasswordEncoder getPasswordEncoder()
 	{
 		return new BCryptPasswordEncoder();
 	}
 	@Autowired PasswordEncoder passworcEncoder;
+	// code that i needed to run the first time on deployment.
 //	@Bean
 //	public CommandLineRunner taskManagerDemo(TaskRepository brepository, CategoryRepository crepository, UserRepository urepository) {
 //		return (args) -> {
@@ -44,7 +44,7 @@ public class TaskManagerApplication {
 //			brepository.save(new Task("Second Task", "An advanced Task", "02/06/2020", "01/05/2020", "Admin", crepository.findByName("Under Review").get(0)));
 //			brepository.save(new Task("Third Task", "Horrible Task", "02/06/2020", "03/05/2020", "Admin", crepository.findByName("Done").get(0)));
 //			
-//			// user1 and user2 password 123456
+//			// user1 and user2 password 123456 EDIT (Changed with postgres to 123 instead)
 ////			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 ////			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 //			User user1 = new User("user", passworcEncoder.encode("123456"), "USER");

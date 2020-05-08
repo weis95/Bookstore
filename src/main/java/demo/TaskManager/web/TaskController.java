@@ -28,17 +28,20 @@ public class TaskController {
 	@Autowired
 	private CategoryRepository crepository; 
 	
+	//Standard security login
     @RequestMapping(value="/login")
     public String login() {	
         return "login";
     }	
 	
+    //gets tasklist for admin and user
     @RequestMapping(value= {"/", "/tasklist"})
     public String tasklist(Model model) {	
         model.addAttribute("tasks", repository.findAll());
         return "tasklist";
     }
   
+    
     @RequestMapping(value = "/add")
     public String addStudent(Model model){
     	model.addAttribute("task", new Task());
@@ -46,7 +49,7 @@ public class TaskController {
         return "addtask";
     }     
     
-	// RESTful service to get all students
+	// RESTful service to get all tasks as JSON.
     @RequestMapping(value="/tasks", method = RequestMethod.GET)
     public @ResponseBody List<Task> tasklistRest() {	
         return (List<Task>) repository.findAll();
@@ -82,7 +85,7 @@ public class TaskController {
     return "edittask";
     }
     
-    // Delete student
+    // Delete task
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteTask(@PathVariable("id") Long taskId, Model model) {

@@ -1,7 +1,8 @@
 package demo.TaskManager.domain;
 
 import javax.persistence.*;
-
+//user class connecting to DB to get information for login, also some hashing for security, INFO: user = 123, admin = 123
+//also tried to be able to hide the delete button from user with "HAS ROLE", but couldn't make it work.
 @Table(name = "app_user")
 @Entity
 public class User {

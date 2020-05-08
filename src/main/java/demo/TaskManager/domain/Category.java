@@ -9,10 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
+//Standard class as demonstrated during class, with One to many relation
 @Entity
 public class Category {
-	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long categoryid;
